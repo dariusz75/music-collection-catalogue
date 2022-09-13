@@ -24,57 +24,75 @@ const Sidebar = () => {
       <hr />
       <div className='center'>
         <ul>
+          <p className="title">
+            MAIN
+          </p>
           <li>
-            <DashboardIcon />
+            <DashboardIcon className='icon' />
             <span>Dashboard</span>
           </li>
+          <p className="title">
+            LISTS
+          </p>
           <li>
-            <PeopleOutlineIcon />
+            <PeopleOutlineIcon className='icon' />
             <span>Users</span>
           </li>
           <li>
-            <InventoryIcon />
+            <InventoryIcon className='icon' />
             <span>Products</span>
           </li>
           <li>
-            <BookmarkBorderIcon />
+            <BookmarkBorderIcon className='icon' />
             <span>Orders</span>
           </li>
           <li>
-            <LocalPostOfficeIcon />
+            <LocalPostOfficeIcon className='icon' />
             <span>Delivery</span>
           </li>
+          <p className="title">
+            USEFUL
+          </p>
           <li>
-            <StackedLineChartIcon />
+            <StackedLineChartIcon className='icon' />
             <span>Statistics</span>
           </li>
           <li>
-            <CircleNotificationsIcon />
+            <CircleNotificationsIcon className='icon' />
             <span>Notifications</span>
           </li>
+          <p className="title">
+            SERVICE
+          </p>
           <li>
-            <DnsIcon />
+            <DnsIcon className='icon' />
             <span>System</span>
           </li>
           <li>
-            <TextSnippetIcon />
+            <TextSnippetIcon className='icon' />
             <span>Logs</span>
           </li>
           <li>
-            <SettingsApplicationsIcon />
+            <SettingsApplicationsIcon className='icon' />
             <span>Settings</span>
           </li>
+          <p className="title">
+            USER
+          </p>
           <li>
-            <AccountBoxOutlinedIcon />
+            <AccountBoxOutlinedIcon className='icon' />
             <span>Profile</span>
           </li>
           <li>
-            <LogoutOutlinedIcon />
+            <LogoutOutlinedIcon className='icon' />
             <span>Logout</span>
           </li>
         </ul>
       </div>
-      <div className='bottom'>colors</div>
+      <div className='bottom'>
+        <div className="color-option"></div>
+        <div className="color-option"></div>
+      </div>
     </div>
 };
 
