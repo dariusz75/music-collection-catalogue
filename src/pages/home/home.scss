@@ -15,5 +15,16 @@
       padding: 5px 20px;
     }
 
+    .list-container {
+      margin: 20px;
+      padding: 20px;
+      box-shadow: 2px 4px 10px 1px #c7c4c4;
+      -webkit-box-shadow: 2px 4px 10px 1px #c7c4c4;
 
+      .list-title {
+        margin-bottom: 15px;
+        font-weight: 500;
+        color: grey;
+      }
+    }
 };
