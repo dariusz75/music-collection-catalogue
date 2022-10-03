@@ -1,3 +1,8 @@
 .list {
-  color: red
+  display: flex;
+  width: 100%;
+
+  .list-container {
+    flex: 6;
+  }
 };
