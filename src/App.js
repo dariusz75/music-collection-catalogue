@@ -1,3 +1,5 @@
+import './style/dark.scss';
+
 import {
   BrowserRouter,
   Routes,
@@ -14,7 +16,7 @@ import { productInputs, userInputs } from "./dataFiles/form-source";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app dark">
       <BrowserRouter>
         <Routes>
           <Route path='/' >
@@ -27,6 +29,7 @@ function App() {
                 path="new"
                 element={<New inputs={userInputs} title="Add New User" />}
               />
+              </Route>
             <Route path='products'>
               <Route index element={<List />}/>
               <Route path=':productId' element={<Single />} />
@@ -35,7 +38,6 @@ function App() {
                 element={<New inputs={productInputs} title="Add New Product" />}
               />
             </Route>
-          </Route>
           </Route>
         </Routes>
       </BrowserRouter>

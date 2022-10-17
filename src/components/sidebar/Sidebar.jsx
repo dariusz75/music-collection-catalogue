@@ -1,5 +1,7 @@
 import './sidebar.scss';
 
+import { Link } from 'react-router-dom';
+
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import InventoryIcon from '@mui/icons-material/Inventory';
@@ -17,9 +19,9 @@ const Sidebar = () => {
   return <div className='sidebar'>
 
       <div className='top'>
-        <span className="logo">
-          Admin
-        </span>
+        <Link to='/' style={{textDecoration: 'none'}}>
+        <span className="logo">Admin</span>
+        </Link>
       </div>
       <hr />
       <div className='center'>
@@ -34,14 +36,18 @@ const Sidebar = () => {
           <p className="title">
             LISTS
           </p>
-          <li>
-            <PeopleOutlineIcon className='icon' />
-            <span>Users</span>
-          </li>
-          <li>
-            <InventoryIcon className='icon' />
-            <span>Products</span>
-          </li>
+          <Link to='/users' style={{textDecoration: 'none'}}>
+            <li>
+              <PeopleOutlineIcon className='icon' />
+              <span>Users</span>
+            </li>
+          </Link>
+          <Link to='/products' style={{textDecoration: 'none'}}>
+            <li>
+              <InventoryIcon className='icon' />
+              <span>Products</span>
+            </li>
+          </Link>
           <li>
             <BookmarkBorderIcon className='icon' />
             <span>Orders</span>
