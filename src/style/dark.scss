@@ -9,7 +9,7 @@
   .table {
     background-color: #111;
 
-    .tableCell {
+    .table-cell {
       color: gray;
     }
   }
@@ -54,9 +54,9 @@
       color: gray;
       border: none;
 
-      .viewButton,
-      .deleteButton,
-      .cellWithStatus {
+      .view-button,
+      .delete-button,
+      .cell-with-status {
         color: gray;
         border: none;
       }

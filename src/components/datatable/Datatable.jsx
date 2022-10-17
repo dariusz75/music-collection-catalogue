@@ -33,11 +33,12 @@ const Datatable = () => {
       </Link>
     </div>
     <DataGrid
-        rows={userRows}
-        columns={userColumns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
-        checkboxSelection
+      className='datagrid'
+      rows={userRows}
+      columns={userColumns.concat(actionColumn)}
+      pageSize={9}
+      rowsPerPageOptions={[9]}
+      checkboxSelection
       />
   </div>
 };
