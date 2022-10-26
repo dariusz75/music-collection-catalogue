@@ -16,11 +16,12 @@ import Single from './pages/single/Single'
 
 import { productInputs, userInputs } from "./dataFiles/form-source";
 import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from './context/authContext';
 
 function App() {
 
   const { darkMode } = useContext(DarkModeContext);
-  const currentUser = false;
+  const { currentUser } = useContext(AuthContext);
 
   const RequireAuth = ({children}) => {
     return currentUser ? children : <Navigate to='/login' />;
