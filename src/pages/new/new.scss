@@ -64,11 +64,16 @@
             width: 150px;
             padding: 10px;
             border: none;
-            background-color: teal;
+            background-color: #008080;
             color: white;
             font-weight: bold;
             cursor: pointer;
             margin-top: 10px;
+
+            &:disabled {
+              background-color: #7cdfdf;
+              cursor: not-allowed;
+            }
           }
         }
       }
