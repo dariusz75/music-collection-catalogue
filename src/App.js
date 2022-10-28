@@ -36,7 +36,7 @@ function App() {
             <Route index element={<RequireAuth><Home /></RequireAuth>} />
             <Route path='users'>
               <Route index element={<RequireAuth><List /></RequireAuth>}/>
-              <Route path=':userId' element={<RequireAuth><Single /></RequireAuth>} />
+              <Route path=':userId' element={<RequireAuth><Single /></RequireAuth>}/>
               <Route
                 path="new"
                 element={<RequireAuth><New inputs={userInputs} title="Add New User" /></RequireAuth>}
