@@ -1,16 +1,37 @@
 import './datatable.scss';
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { DataGrid } from '@mui/x-data-grid';
+import { collection, getDocs } from "firebase/firestore";
 
-import { userColumns, userRows } from '../../dataFiles/datatable';
+import { db } from '../../firebase';
+import { userColumns } from '../../dataFiles/datatable';
 
 
 const Datatable = () => {
 
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const list = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, 'users'));
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+          list.push({id: doc.id, ...doc.data()});
+          console.log('list is', list);
+          setData(list);
+        });
+      } catch (error) {
+        console.log('There was a fetching error:', error)
+      }
+    };
+    fetchData();
+  }, [])
 
   const handleDelete = (id) => {
     const newRows = data.filter(item => item.id !== id)
