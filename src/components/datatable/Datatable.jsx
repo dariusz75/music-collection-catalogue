@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { DataGrid } from '@mui/x-data-grid';
-import { collection, getDocs } from "firebase/firestore";
+import { doc, collection, getDocs, deleteDoc } from "firebase/firestore";
 
 import { db } from '../../firebase';
 import { userColumns } from '../../dataFiles/datatable';
@@ -14,28 +14,35 @@ const Datatable = () => {
 
   const [data, setData] = useState([]);
 
+  const fetchData = async () => {
+    const list = [];
+    try {
+      const querySnapshot = await getDocs(collection(db, 'users'));
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+      // console.log(doc.id, " => ", doc.data());
+        list.push({id: doc.id, ...doc.data()});
+        console.log('list is', list);
+        setData(list);
+      });
+    } catch (error) {
+      console.log('There was an error during fetching data:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const list = [];
-      try {
-        const querySnapshot = await getDocs(collection(db, 'users'));
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-        // console.log(doc.id, " => ", doc.data());
-          list.push({id: doc.id, ...doc.data()});
-          console.log('list is', list);
-          setData(list);
-        });
-      } catch (error) {
-        console.log('There was a fetching error:', error)
-      }
-    };
     fetchData();
   }, [])
 
-  const handleDelete = (id) => {
-    const newRows = data.filter(item => item.id !== id)
-    setData(newRows);
+  const handleDelete = async (id) => {
+    // const newRows = data.filter(item => item.id !== id)
+    // setData(newRows);
+    try {
+      await deleteDoc(doc(db, "users", id));
+      fetchData();
+    } catch (error) {
+      console.log('There was an error during deleting data:', error);
+    }
   }
 
   const actionColumn = [

@@ -1,5 +1,6 @@
 import './new.scss';
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import { doc, setDoc, addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -16,7 +17,7 @@ const New = ({inputs, title}) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [imgUplodedPercentage, setImgUplodedPercentage] = useState(null);
-
+  const navigate = useNavigate();
   
 
   const handleInput = (e) => {
@@ -42,6 +43,7 @@ const New = ({inputs, title}) => {
         ...data,
         timestamp: serverTimestamp(),
       });
+      navigate(-1);
     } catch (error) {
       console.log('There was an error:', error);
     }
